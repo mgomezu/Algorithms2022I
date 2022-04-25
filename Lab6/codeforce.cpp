@@ -1,12 +1,16 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 int main(void){
+    char cadena[128];
+    ifstream fe("archivo.txt");
     int t;
     string s;
-    cin>>t;
+    fe >> cadena;
+    t = stoi(cadena);
     for(int i=0;i<t;i++)
     {
-        cin>>s;
+        fe >> s;
         if(s.size()%2==0){
             string left = s.substr(0,s.size()/2);
             string right = s.substr(s.size()/2,(s.size())/2);
@@ -20,5 +24,6 @@ int main(void){
         }
         cout<<"\n";
     }
+    fe.close();
     return 0;
 }
